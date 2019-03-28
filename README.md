@@ -2,7 +2,7 @@
 Tiny Docker image for [graphql-playground](https://github.com/prismagraphql/graphql-playground) served by Golang.
 
 # Usage
-```docker run --name graphql-playground -d mkrou/graphql-playground-docker```
+```docker run --name graphql-playground -d juriad/graphql-playground-docker```
 
 # Environment Variables
 ### HOST

@@ -23,6 +23,7 @@
             GraphQLPlayground.init(document.getElementById('root'), {
                 endpoint: "{{ .Host }}",
                 settings: {
+                    'editor.cursorShape': 'line',
                     'editor.theme': '{{ .Theme }}'
                 }
             })

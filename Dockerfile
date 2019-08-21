@@ -5,7 +5,9 @@ RUN go build -o graphpg main.go
 
 FROM alpine
 
-ENV HOST http://localhost:9000/graphql
+ENV HOST 'localhost:9000'
+ENV GRAPHQL_HOST 'http://$HOST/graphql'
+ENV SUBSCRIPTION_HOST 'ws://$HOST/subscriptions'
 ENV TITLE "GraphQL Playground"
 ENV PORT 8080
 ENV THEME dark

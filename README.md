@@ -6,7 +6,13 @@ Tiny Docker image for [graphql-playground](https://github.com/prismagraphql/grap
 
 # Environment Variables
 ### HOST
-The GraphQL endpoint url. Default: http://localhost:9000/graphql
+The GraphQL server hostname and port. Default: localhost:9000
+
+### GRAPQL_HOST
+The GraphQL endpoint url. Default: http://$HOST/graphql
+
+### SUBSCRIPTION_HOST
+The GraphQL subscriptions WebSocket endpoint url. Default: ws://$HOST/subscriptions
 
 ### THEME
 Property to customize your color theme. Possible values: 'dark', 'light'. Default: dark

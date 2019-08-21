@@ -8,13 +8,15 @@ import (
 	"os"
 	"path"
 	"strconv"
+	"strings"
 )
 
 type Config struct {
-	Host  string
-	Theme string
-	Title string
-	Port  uint16
+	GraphQLHost	string
+	SubscriptionHost	string
+	Theme	string
+	Title	string
+	Port	uint16
 }
 
 var (
@@ -45,11 +47,13 @@ func config() (*Config, error) {
 	if port, err := strconv.ParseUint(os.Getenv("PORT"), 10, 16); err != nil {
 		return nil, err
 	} else {
+		host := os.Getenv("HOST")
 		return &Config{
-			Host:  os.Getenv("HOST"),
-			Theme: os.Getenv("THEME"),
-			Title: os.Getenv("TITLE"),
-			Port:  uint16(port),
+			GraphQLHost:	strings.Replace(os.Getenv("GRAPHQL_HOST"), "$HOST", host, -1),
+			SubscriptionHost:	strings.Replace(os.Getenv("SUBSCRIPTION_HOST"),"$HOST", host, -1),
+			Theme:	os.Getenv("THEME"),
+			Title:	os.Getenv("TITLE"),
+			Port:	uint16(port),
 		}, nil
 	}
 }
